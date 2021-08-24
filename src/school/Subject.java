@@ -48,4 +48,8 @@ public class Subject {
     public void setStudentList(ArrayList<Student> studentList) {
         this.studentList = studentList;
     }
+
+    public void register(Student student) {      //수강 신청
+        studentList.add(student);
+    }
 }

@@ -14,7 +14,7 @@ public class GenerateGradeReport {
 
     School school = School.getInstance();
     public static final String TITLE = " 수강생 학점\t\t\n";
-    public static final String HEADER = " 이름 | 학번 |중점과목| 점수    \n";
+    public static final String HEADER = " 이름  |  학번  | 전공 | 점수    \n";
     public static final String LINE = "----------------------------------\n";
     private StringBuffer buffer = new StringBuffer();
 
@@ -30,7 +30,7 @@ public class GenerateGradeReport {
 
     public void makeHeader(Subject subject) {
         buffer.append(GenerateGradeReport.LINE);
-        buffer.append("\t" + subject.getSubjectName());
+        buffer.append("\t\t" + subject.getSubjectName());
         buffer.append(GenerateGradeReport.TITLE);
         buffer.append(GenerateGradeReport.HEADER);
         buffer.append(GenerateGradeReport.LINE);
@@ -82,7 +82,6 @@ public class GenerateGradeReport {
 
     public void makeFooter() {
         buffer.append("\n");
-        buffer.append(LINE);
     }
 
 }

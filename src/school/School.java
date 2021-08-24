@@ -19,6 +19,7 @@ public class School {
         return instance;
     }
 
+    //getter setter
     public static void setInstance(School instance) {
         School.instance = instance;
     }
@@ -39,6 +40,7 @@ public class School {
         this.subjectList = subjectList;
     }
 
+    //add student, subject
     public void addStudent(Student student) {
         studentList.add(student);
     }
