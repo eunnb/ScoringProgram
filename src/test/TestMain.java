@@ -12,6 +12,8 @@ public class TestMain {
   School goodSchool = School.getInstance();
   Subject korean;
   Subject math;
+  Subject science;
+
   GenerateGradeReport gradeReport = new GenerateGradeReport();
 
   public static void main(String[] args) {
@@ -52,29 +54,38 @@ public class TestMain {
     math.register(student4);
     math.register(student5);
 
+    science.register(student1);
+    science.register(student3);
+    science.register(student5);
+
     addScoreForStudent(student1, korean, 95);
     addScoreForStudent(student1, math, 56);
+    addScoreForStudent(student1, science, 95);
 
     addScoreForStudent(student2, korean, 95);
     addScoreForStudent(student2, math, 95);
 
     addScoreForStudent(student3, korean, 100);
     addScoreForStudent(student3, math, 88);
+    addScoreForStudent(student3, science, 85);
 
     addScoreForStudent(student4, korean, 89);
     addScoreForStudent(student4, math, 95);
 
     addScoreForStudent(student5, korean, 85);
     addScoreForStudent(student5, math, 56);
+    addScoreForStudent(student5, science, 55);
   }
 
   private void createSubject() {
 
     korean = new Subject(Define.KOREAN, "국어");
     math = new Subject(Define.MATH, "수학");
+    science = new Subject(Define.SCIENCE, "과학");
 
     goodSchool.addSubject(korean);
     goodSchool.addSubject(math);
+    goodSchool.addSubject(science);
   }
 
   private void addScoreForStudent(Student student, Subject subject, int point) {

@@ -3,6 +3,7 @@ package school.report;
 import grade.BasicEvaluation;
 import grade.GradeEvaluation;
 import grade.MajorEvaluation;
+import grade.PassFailEvaluation;
 import java.util.ArrayList;
 import school.School;
 import school.Score;
@@ -60,7 +61,7 @@ public class GenerateGradeReport {
         ArrayList<Score> scoreList = student.getScoreList();
         int majorId = student.getMajor().getSubjectId();
 
-        GradeEvaluation[] gradeEvaluation = {new BasicEvaluation(), new MajorEvaluation()};
+        GradeEvaluation[] gradeEvaluation = {new BasicEvaluation(), new MajorEvaluation(), new PassFailEvaluation()};
 
         for (int i = 0; i < scoreList.size(); i++) {
 
@@ -69,8 +70,10 @@ public class GenerateGradeReport {
                 String grade;
                 if (score.getSubject().getSubjectId() == majorId) {
                     grade = gradeEvaluation[Define.SAB_TYPE].getGrade(score.getPoint());
-                } else {
+                } else if (score.getSubject().getSubjectId() != Define.SCIENCE){
                     grade = gradeEvaluation[Define.AB_TYPE].getGrade(score.getPoint());
+                } else {
+                    grade = gradeEvaluation[Define.PF_TYPE].getGrade(score.getPoint());
                 }
                 buffer.append(score.getPoint());
                 buffer.append(":");
